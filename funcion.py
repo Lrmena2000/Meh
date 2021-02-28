@@ -38,15 +38,18 @@ def check_char (char):
     else:
         codigo = 3
     return codigo
-prueba = check_char()
-print (prueba)
+
 
 def cap_switch(char_in):
-    if char_in.isupper():
-        char_in = char_in.lower()
-    elif char_in.islower():
-        char_in = char_in.upper()
-    return char_in
+    verificar = check_char(char_in)
+    if (verificar == 0):
+        if char_in.isupper():
+            char_in = char_in.lower() 
+        elif char_in.islower():
+            char_in = char_in.upper()
+        return char_in
+    else:
+        return verificar
 
 
-print(cap_switch("a"))
+print(cap_switch("d"))
