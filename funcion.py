@@ -47,9 +47,7 @@ def cap_switch(char_in):
             char_in = char_in.lower() 
         elif char_in.islower():
             char_in = char_in.upper()
-        return char_in
+        print(char_in)
+        return verificar
     else:
         return verificar
-
-
-print(cap_switch("d"))
