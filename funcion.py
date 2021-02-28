@@ -47,7 +47,19 @@ def cap_switch(char_in):
             char_in = char_in.lower() 
         elif char_in.islower():
             char_in = char_in.upper()
-        print(char_in)
-        return verificar
+        return char_in
     else:
         return verificar
+
+
+def test_cap_switch():
+    letras = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+    res = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+    for i in range(51):
+        resultado = cap_switch(letras[i])
+        print(resultado, res[i])
+        if resultado == res[i]:
+            print("yes")
+        else:
+            print("no")
+test_cap_switch()
