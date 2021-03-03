@@ -1,41 +1,44 @@
 def check_char (char):
-    tipo = type(char)
-    codigo = 0
-    rango = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    if tipo == str:
-        tam = len (char)
-        char = char.upper()
-        if tam >1:
-            cont1 = 0 
-            ctrl = 0 
-
-            while ctrl == 0:
-                for lett in char:
-                    cont1 = cont1 +1
-                    if codigo == 2 and cont1 == tam +1:
+    '''Los valores de codigo representan:
+    codigo = 0: Se recibió un único caracter entre A-Z
+    codigo = 1: Se recibió más de un caracter en el rango A-Z
+    codigo = 2: Se recibió uno o más caracteres fuera del rango A-Z
+    codigo = 3: Se recibió uno o más caracateres que no son del tipo string
+    '''
+    tipo = type(char) #Para determinar el tipo de variable que es char
+    codigo = 0 #Variable que establece el codigo de error, según el contenido de la variable char
+    rango = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" #Cadena de caracteres que se utilizaran para saber si el dato ingresado se encuentra dentro del rango A-Z 
+    if tipo == str: #Si la variable es de tipo string, se procede a realizar otras comprobaciones
+        tam = len (char) #Para medir la cantidad de caracteres de la palabra
+        char = char.upper() #Para hacer todas las letras mayusculas y evitar problemas relacionados con ello
+        if tam >1: #Si el tamaño es mayor a 1 caracter, se procede a indetificar si está dentro del rango A-Z
+            cont1 = 0 #Variable que lleva el conteo de los caracteres
+            ctrl = 0 #Variable que controla cuando se sale del bucle while
+            while ctrl == 0: #Bucle while
+                for lett in char: #Ciclo que revisa cada caracter y lo compara con los que se encuentran en la cadena de rango
+                    cont1 = cont1 +1 #Cada vez que se inicia el ciclo, se suma 1 al conteo
+                    if codigo == 2: #Si codigo tiene un valor de 2, char tiene caracteres fuera del rango A-Z, no es necesario revisar más y se sale del bucle while 
                         ctrl = 1 
                         break
-                    if cont1 == tam +1:
+                    if cont1 == tam +1: #Si el contador es más grande que el tamaño de la palabra, entonces todos los caracteres están dentro del rango A-Z y se sale del bucle while
                         codigo = 1
                         ctrl = 1
                         break
-                    for alph in rango:
+                    for alph in rango: #Ciclo en el que se comprueba si cada caracter está dentro del rango A-Z
                         if lett == alph:
                             codigo = 1
                             break
-                        if alph == "Z" and lett != alph:
-                            ctrl = 1
+                        if alph == "Z" and lett != alph: #Si ya se llegó a Z y el caracter no coincide, se asigna un valor de 2 a codigo
                             codigo = 2
-                            cont1 = tam
-        else:
+        else: #Si el tamaño de char es de 1 solo caracter se procede a comprobar si está dentro del rango A-Z
             for alph in rango:
-                        if char == alph:
+                        if char == alph: #Si el caracter está dentro del rango, se asigna un valor de 0 a codigo
                             codigo = 0
                             break
-                        if alph == "Z" and char != alph:
+                        if alph == "Z" and char != alph: #Si el caracter llegó a Z y no coincide, entonces se asigna un valor de 2 a codigo
                             codigo = 2
 
-    else:
+    else: #Si char no es del tipo string, entonces se asigna directamente un valor de 3 a codigo
         codigo = 3
     return codigo
 
