@@ -61,12 +61,18 @@ def check_char(char):
 
 
 def cap_switch(char_in):
-    verificar = check_char(char_in)
-    if (verificar == 0):
+    verificar = check_char(char_in)  # Se establece la variable local verificar
+    # para un mejor manejo de informacion
+    if (verificar == 0):  # Si se recibe un 0, entonces lo que se ingresó
+        # fue un caracter valido
         if char_in.isupper():
-            char_in = char_in.lower()
+            char_in = char_in.lower()  # Si el caracter era mayuscula,
+            # se convierte a minuscula
         elif char_in.islower():
-            char_in = char_in.upper()
-        return char_in
+            char_in = char_in.upper()  # Si el caracter era minuscula, se
+            # convierte a mayuscula
+        return char_in  # Devuelve el caracter introducido con la conversion
+        # correspondiente
     else:
-        return verificar
+        return verificar  # Si existe un error en check_char,
+        # cap_switch devuelve el mismo codigo de error

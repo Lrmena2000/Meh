@@ -1,4 +1,4 @@
-import funcion
+import funcion  # Se debe llamar el codigo creado para correr el pytest
 
 
 def test_cap_switch():
@@ -13,6 +13,14 @@ def test_cap_switch():
     for i in range(51):
         resultado = funcion.cap_switch(letras[i])
         assert resultado == res[i]
+
+
+'''
+test_cap_switch hace una prueba para cada letra mayuscula y minuscula
+valida de la lista letras y compara el resultado con los
+elementos de la lista res, que corresponden
+a las respuestas esperables de la operacion cap_switch.
+'''
 
 
 def test_check_char1():
