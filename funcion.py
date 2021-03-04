@@ -1,22 +1,3 @@
-<<<<<<< HEAD
-def check_char(char):
-    tipo = type(char)
-    codigo = 0
-    rango = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    if tipo == str:
-        tam = len(char)
-        char = char.upper()
-        if tam > 1:
-            cont1 = 0
-            ctrl = 0
-            while ctrl == 0:
-                for lett in char:
-                    cont1 = cont1 + 1
-                    if codigo == 2 and cont1 == tam + 1:
-                        ctrl = 1
-                        break
-                    if cont1 == tam + 1:
-=======
 def check_char (char):
     '''Los valores de codigo representan:
     codigo = 0: Se recibió un único caracter entre A-Z
@@ -40,7 +21,6 @@ def check_char (char):
                         ctrl = 1 
                         break
                     if cont1 == tam +1: #Si el contador es más grande que el tamaño de la palabra, entonces todos los caracteres están dentro del rango A-Z y se sale del bucle while
->>>>>>> 317ddfd8bb2ee0be947062bb9dbe6f33f86279c9
                         codigo = 1
                         ctrl = 1
                         break
@@ -52,14 +32,6 @@ def check_char (char):
                             codigo = 2
         else: #Si el tamaño de char es de 1 solo caracter se procede a comprobar si está dentro del rango A-Z
             for alph in rango:
-<<<<<<< HEAD
-                if char == alph:
-                    codigo = 0
-                    break
-                if alph == "Z" and char != alph:
-                    codigo = 2
-    else:
-=======
                         if char == alph: #Si el caracter está dentro del rango, se asigna un valor de 0 a codigo
                             codigo = 0
                             break
@@ -67,7 +39,6 @@ def check_char (char):
                             codigo = 2
 
     else: #Si char no es del tipo string, entonces se asigna directamente un valor de 3 a codigo
->>>>>>> 317ddfd8bb2ee0be947062bb9dbe6f33f86279c9
         codigo = 3
     return codigo
 
