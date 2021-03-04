@@ -1,5 +1,6 @@
 def check_char(char):
-    '''Los valores de codigo representan:
+    '''
+    Los valores de codigo representan:
     codigo = 0: Se recibió un único caracter entre A-Z
     codigo = 1: Se recibió más de un caracter en el rango A-Z
     codigo = 2: Se recibió uno o más caracteres fuera del rango A-Z
